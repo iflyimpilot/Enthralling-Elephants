@@ -1,0 +1,70 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url("background.jpg");
+  background-size: cover;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  margin: 0;
+}
+.startMenu {
+  /* background-color: #fff; */
+  background-image: url("/background.jpg");
+  padding: 0;
+  margin: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+.startMenu img {
+  padding: 20px;
+  height: 20vh;
+}
+.startMenu img :hover {
+}
+
+header img {
+  max-width: 60vw;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
+.startMenu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("background.jpg");
+  background-size: cover;
+}
+
+.cardGrid {
+  flex: 1;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+.cardGrid img {
+  height: 10vh;
+  padding-bottom: 10px;
+}
+
+@media only screen and (min-width: 786px) {
+  .cardGrid {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+  .cardGrid img {
+    height: auto;
+    width: 10vw;
+    max-height: 30vh;
+  }
+}
