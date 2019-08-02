@@ -24,6 +24,13 @@ body {
 .startButton:hover {
   transform: scale(1.5, 1.5);
 }
+.instruct {
+  font-family: "Rammetto One";
+  font-size: 5vh;
+  font-weight: bold;
+  margin: 10px;
+  text-shadow: 1px 1px red;
+}
 .card {
   /* margin: 5px; */
   background-size: contain;
@@ -41,7 +48,7 @@ body {
   backface-visibility: hidden;
 }
 .front {
-  background: url(../img/block.png) no-repeat center center / contain;
+  background: url(../img/block.png) no-repeat center center / cover;
 }
 .back {
   background-size: contain;
@@ -70,22 +77,21 @@ footer {
 }
 
 .cardGrid {
-  flex: 1;
   width: 100vw;
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: space-around;
+  flex: 1;
 }
 .cardGrid div {
   height: 10vh;
 }
 .selected {
   transform: rotateY(180deg);
-  transition: transform 2s;
+  transition: transform 0.7s;
   transform-style: preserve-3d;
 }
 .match {
-  border: 4px solid red;
   background-image: none !important;
   opacity: 0;
 }

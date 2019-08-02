@@ -1,15 +1,24 @@
 let start = document.querySelector(".startMenu");
 let startButton = document.querySelector(".startButton");
+let resetButton = document.querySelector(".restart");
 let grid = document.querySelector(".cardGrid");
 let count = 0;
 let firstGuess = "";
 let secondGuess = "";
 let previousTarget = null;
 let delay = 2200;
+
+function reStart(e) {
+  if (e.target === resetButton) {
+    location.reload(true);
+  }
+}
+
 function handleStart(e) {
   if (e.target === startButton) {
     e.target.parentNode.remove();
   }
+
   // timerStatus = true;
   const cardsArray = [
     {
@@ -118,3 +127,4 @@ function handleStart(e) {
 }
 
 startButton.addEventListener("click", handleStart);
+resetButton.addEventListener("click", reStart);
