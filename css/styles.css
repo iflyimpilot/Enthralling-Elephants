@@ -64,6 +64,8 @@ footer {
 
 #timer {
   color: yellow;
+  font-family: "Rammetto One", cursive;
+  font-size: 80%;
 }
 
 .startMenu {
