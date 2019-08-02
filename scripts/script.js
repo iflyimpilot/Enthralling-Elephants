@@ -9,6 +9,7 @@ let correct = 0;
 let firstGuess = "";
 let secondGuess = "";
 let previousTarget = null;
+
 let delay = 2200;
 
 let paused = false; //Timer pause
@@ -21,6 +22,7 @@ function reStart(e) {
 }
 
 
+
 function handleStart(e) {
   if (e.target === startButton) {
     e.target.parentNode.remove();
@@ -28,10 +30,12 @@ function handleStart(e) {
     gameGrid = "";
   }
 
-  var minutesLabel = document.getElementById("minutes");
-  var secondsLabel = document.getElementById("seconds");
+  //TIMER
+  let minutesLabel = document.getElementById("minutes");
+  let secondsLabel = document.getElementById("seconds");
+  let totalSeconds = 0;
 
-  var totalSeconds = 0;
+  
   setInterval(setTime, 1000);
 
   function setTime() {
@@ -43,13 +47,17 @@ function handleStart(e) {
   }
 
   function pad(val) {
-    var valString = val + "";
+    let valString = val + "";
     if (valString.length < 2) {
       return "0" + valString;
     } else {
       return valString;
     }
   }
+
+  //TIMER
+
+
 
   const cardsArray = [
     {
