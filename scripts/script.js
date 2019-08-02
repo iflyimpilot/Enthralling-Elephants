@@ -68,7 +68,12 @@ function handleStart(e) {
   });
 
   grid.addEventListener("click", function(e) {
-    if (e.target.tagName === "SECTION" || e.target === previousTarget) {
+    console.log(e.target.className);
+    if (
+      e.target.tagName === "SECTION" ||
+      e.target.className === "card selected" ||
+      e.target === previousTarget
+    ) {
       return;
     }
     if (count < 2) {
@@ -76,9 +81,11 @@ function handleStart(e) {
       if (count === 1) {
         firstGuess = e.target.parentNode.dataset.name;
         e.target.parentNode.classList.add("selected");
+        previousTarget = e.target;
       } else {
         secondGuess = e.target.parentNode.dataset.name;
         e.target.parentNode.classList.add("selected");
+        previousTarget = null;
       }
 
       if (firstGuess !== "" && secondGuess !== "") {
@@ -88,7 +95,6 @@ function handleStart(e) {
         } else {
           setTimeout(resetGuesses, delay);
         }
-        previousTarget = e.target;
       }
     }
   });
@@ -111,4 +117,4 @@ function handleStart(e) {
   };
 }
 
-start.addEventListener("click", handleStart);
+startButton.addEventListener("click", handleStart);
