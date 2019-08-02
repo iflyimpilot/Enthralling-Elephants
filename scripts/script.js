@@ -148,11 +148,14 @@ function handleStart(e) {
       paused = true;
 
       const finish = document.createElement("div");
-      // finish.classList.add("finish");
+      finish.classList.add("finishImgBlock");
+      const youWin = document.createElement("div");
+      youWin.classList.add("youWin");
+
       const finishImg = document.createElement("div");
       finishImg.classList.add("finishImg");
       document.querySelector("footer").classList.add("finish");
-      // document.querySelector("#timer").innerHTML("Your Time");
+      finish.appendChild(youWin);
       finish.appendChild(finishImg);
       document.querySelector("footer").append(finish);
     }
