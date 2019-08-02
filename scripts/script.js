@@ -1,24 +1,31 @@
 let start = document.querySelector(".startMenu");
 let startButton = document.querySelector(".startButton");
+let resetButton = document.querySelector(".reset");
 let grid = document.querySelector(".cardGrid");
 let count = 0;
+let correct = 0;
 let firstGuess = "";
 let secondGuess = "";
 let previousTarget = null;
 let delay = 2200;
+let paused = false; //Timer pause
 function handleStart(e) {
   if (e.target === startButton) {
     e.target.parentNode.remove();
+  } else {
+    gameGrid = "";
   }
-  var minutesLabel = document.getElementById("minutes");
-  var secondsLabel = document.getElementById("seconds");
+  var minutesLabel = document.querySelector(".minutes");
+  var secondsLabel = document.querySelector(".seconds");
   var totalSeconds = 0;
   setInterval(setTime, 1000);
 
   function setTime() {
-    ++totalSeconds;
-    secondsLabel.innerHTML = pad(totalSeconds % 60);
-    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    if (paused === false) {
+      ++totalSeconds;
+      secondsLabel.innerHTML = pad(totalSeconds % 60);
+      minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    }
   }
 
   function pad(val) {
@@ -118,6 +125,20 @@ function handleStart(e) {
   });
 
   const match = () => {
+    correct++;
+    console.log(correct);
+    if (correct >= 1) {
+      paused = true;
+
+      const finish = document.createElement("div");
+      // finish.classList.add("finish");
+      const finishImg = document.createElement("div");
+      finishImg.classList.add("finishImg");
+      document.querySelector("footer").classList.add("finish");
+      // document.querySelector("#timer").innerHTML("Your Time");
+      finish.appendChild(finishImg);
+      document.querySelector("footer").append(finish);
+    }
     let selected = document.querySelectorAll(".selected");
     selected.forEach(card => {
       card.classList.add("match");
@@ -136,3 +157,4 @@ function handleStart(e) {
 }
 
 startButton.addEventListener("click", handleStart);
+// resetButton.addEventListener("click", handleStart);
