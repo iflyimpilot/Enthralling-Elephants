@@ -10,18 +10,15 @@ let firstGuess = "";
 let secondGuess = "";
 let previousTarget = null;
 
-let delay = 2200;
+let delay = 1400;
 
 let paused = false; //Timer pause
-
 
 function reStart(e) {
   if (e.target === resetButton) {
     location.reload(true);
   }
 }
-
-
 
 function handleStart(e) {
   if (e.target === startButton) {
@@ -35,7 +32,6 @@ function handleStart(e) {
   let secondsLabel = document.getElementById("seconds");
   let totalSeconds = 0;
 
-  
   setInterval(setTime, 1000);
 
   function setTime() {
@@ -56,8 +52,6 @@ function handleStart(e) {
   }
 
   //TIMER
-
-
 
   const cardsArray = [
     {
@@ -182,4 +176,3 @@ function handleStart(e) {
 startButton.addEventListener("click", handleStart);
 
 resetButton.addEventListener("click", reStart);
-

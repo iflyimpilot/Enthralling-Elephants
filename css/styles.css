@@ -51,7 +51,7 @@ body {
   background: url(../img/block.png) no-repeat center center / cover;
 }
 .back {
-  background-size: contain;
+  /* background-size: contain; */
   background-repeat: no-repeat;
   background-position: center center;
 }
@@ -60,7 +60,7 @@ header img {
   max-width: 60vw;
 }
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100vw;
   display: flex;
@@ -94,6 +94,7 @@ footer {
 }
 .cardGrid div {
   height: 10vh;
+  width: 10vh;
 }
 .selected {
   transform: rotateY(180deg);
@@ -126,6 +127,13 @@ footer {
   background-repeat: no-repeat;
 }
 
+button {
+  background-color: rgb(170, 165, 165);
+  color: rgba(255, 0, 0, 0.808);
+  border-radius: 10%;
+  font-family: "Rammetto One", cursive;
+}
+
 @media only screen and (min-width: 786px) {
   .cardGrid {
     display: grid;
@@ -136,11 +144,4 @@ footer {
     width: 10vw;
     max-height: 30vh;
   }
-}
-
-button {
-  background-color: rgb(170, 165, 165);
-  color: rgba(255, 0, 0, 0.808);
-  border-radius: 10%;
-  font-family: "Rammetto One", cursive;
 }
