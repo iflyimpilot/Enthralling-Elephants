@@ -5,11 +5,14 @@ let count = 0;
 let firstGuess = "";
 let secondGuess = "";
 let previousTarget = null;
-let delay = 2200;
+let delay = 1500;
+
 function handleStart(e) {
   if (e.target === startButton) {
     e.target.parentNode.remove();
   }
+
+  //TIMER
   let minutesLabel = document.getElementById("minutes");
   let secondsLabel = document.getElementById("seconds");
   let totalSeconds = 0;
@@ -29,6 +32,7 @@ function handleStart(e) {
       return valString;
     }
   }
+  //TIMER
   const cardsArray = [
     {
       name: "mushroom",
