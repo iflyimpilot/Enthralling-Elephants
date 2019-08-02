@@ -59,6 +59,13 @@ footer {
   display: flex;
   justify-content: space-between;
 }
+
+/* Timer styling */
+
+#timer {
+  color: yellow;
+}
+
 .startMenu {
   position: fixed;
   display: flex;
@@ -81,7 +88,7 @@ footer {
 }
 .selected {
   transform: rotateY(180deg);
-  transition: transform 2s;
+  transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 .match {
