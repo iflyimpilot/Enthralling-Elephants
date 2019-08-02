@@ -1,7 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background-image: url("background.jpg");
+  background-image: url(../img/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   align-items: center;
@@ -81,7 +81,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("background.jpg");
+  background-image: url(../img/background.jpg);
   background-size: cover;
 }
 
@@ -107,6 +107,23 @@ footer {
 }
 .match .front {
   background: none !important;
+}
+.finish {
+  background-image: url(../img/background.jpg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  margin: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+.finishImg {
+  background-image: url(../img/marioelephant.png);
+  height: 60vh;
+  width: 50vw;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (min-width: 786px) {
