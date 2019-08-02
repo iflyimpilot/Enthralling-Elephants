@@ -1,7 +1,7 @@
 body {
   display: flex;
   flex-direction: column;
-  background-image: url("background.jpg");
+  background-image: url(../img/background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   align-items: center;
@@ -24,6 +24,13 @@ body {
 .startButton:hover {
   transform: scale(1.5, 1.5);
 }
+.instruct {
+  font-family: "Rammetto One";
+  font-size: 5vh;
+  font-weight: bold;
+  margin: 10px;
+  text-shadow: 1px 1px red;
+}
 .card {
   /* margin: 5px; */
   background-size: contain;
@@ -41,7 +48,7 @@ body {
   backface-visibility: hidden;
 }
 .front {
-  background: url(../img/block.png) no-repeat center center / contain;
+  background: url(../img/block.png) no-repeat center center / cover;
 }
 .back {
   background-size: contain;
@@ -74,32 +81,49 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("background.jpg");
+  background-image: url(../img/background.jpg);
   background-size: cover;
 }
 
 .cardGrid {
-  flex: 1;
   width: 100vw;
   display: grid;
   grid-template-columns: auto auto auto;
   justify-content: space-around;
+  flex: 1;
 }
 .cardGrid div {
   height: 10vh;
 }
 .selected {
   transform: rotateY(180deg);
-  transition: transform 0.5s;
+  transition: transform 0.7s;
+
   transform-style: preserve-3d;
 }
 .match {
-  border: 4px solid red;
   background-image: none !important;
   opacity: 0;
 }
 .match .front {
   background: none !important;
+}
+.finish {
+  background-image: url(../img/background.jpg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: red;
+  margin: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+}
+.finishImg {
+  background-image: url(../img/marioelephant.png);
+  height: 60vh;
+  width: 50vw;
+  background-repeat: no-repeat;
 }
 
 @media only screen and (min-width: 786px) {
