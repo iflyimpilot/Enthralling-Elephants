@@ -14,14 +14,11 @@ let delay = 2200;
 
 let paused = false; //Timer pause
 
-
 function reStart(e) {
   if (e.target === resetButton) {
     location.reload(true);
   }
 }
-
-
 
 function handleStart(e) {
   if (e.target === startButton) {
@@ -35,7 +32,6 @@ function handleStart(e) {
   let secondsLabel = document.getElementById("seconds");
   let totalSeconds = 0;
 
-  
   setInterval(setTime, 1000);
 
   function setTime() {
@@ -56,8 +52,6 @@ function handleStart(e) {
   }
 
   //TIMER
-
-
 
   const cardsArray = [
     {
@@ -154,11 +148,14 @@ function handleStart(e) {
       paused = true;
 
       const finish = document.createElement("div");
-      // finish.classList.add("finish");
+      finish.classList.add("finishImgBlock");
+      const youWin = document.createElement("div");
+      youWin.classList.add("youWin");
+
       const finishImg = document.createElement("div");
       finishImg.classList.add("finishImg");
       document.querySelector("footer").classList.add("finish");
-      // document.querySelector("#timer").innerHTML("Your Time");
+      finish.appendChild(youWin);
       finish.appendChild(finishImg);
       document.querySelector("footer").append(finish);
     }
@@ -182,4 +179,3 @@ function handleStart(e) {
 startButton.addEventListener("click", handleStart);
 
 resetButton.addEventListener("click", reStart);
-
