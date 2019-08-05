@@ -143,17 +143,12 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-<<<<<<< HEAD
-
 button {
   background-color: rgb(170, 165, 165);
   color: rgba(255, 0, 0, 0.808);
   border-radius: 10%;
   font-family: "Rammetto One", cursive;
 }
-
-=======
->>>>>>> 54202260363776a9e0402db31254f42b34758f18
 @media only screen and (min-width: 786px) {
   .cardGrid {
     display: grid;
