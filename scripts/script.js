@@ -11,6 +11,44 @@ let previousTarget = null;
 let delay = 1400;
 let paused = false; //Timer pause
 
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function() {
+    this.sound.play();
+  };
+  this.stop = function() {
+    this.sound.pause();
+  };
+}
+const startMusic = new sound("../audio/gametheme.mp3");
+const startSound = new sound("../audio/startSound.mp3");
+const gameMusic = new sound("../audio/remix.mp3");
+const winMusic = new sound("../audio/Eye.mp3");
+function startStartMusic() {
+  startMusic.play();
+}
+function startMusicEnd() {
+  startMusic.stop();
+}
+function startGameMusic() {
+  gameMusic.play();
+}
+function startGameMusicEnd() {
+  gameMusic.stop();
+}
+function startStartSound() {
+  startSound.play();
+}
+function startWinMusic() {
+  winMusic.play();
+}
+
+startStartMusic();
 //the below function makes the reset button reload the page
 function reStart(e) {
   if (e.target === resetButton) {
@@ -20,6 +58,10 @@ function reStart(e) {
 
 // the following function is basically the whole game as it runs
 function handleStart(e) {
+  startMusicEnd();
+  startStartSound();
+  setTimeout(startGameMusic, 2000);
+
   if (e.target === startButton) {
     e.target.parentNode.remove();
   } else {
@@ -143,7 +185,10 @@ function handleStart(e) {
   });
   //below will count the number of matches and when the number gets to nine it will trigger the final win game screen
   const match = () => {
-    if (correct >= 9) 
+    correct++;
+    if (correct >= 1) {
+      startGameMusicEnd();
+      startWinMusic();
       paused = true;
 
       const finish = document.createElement("div");
