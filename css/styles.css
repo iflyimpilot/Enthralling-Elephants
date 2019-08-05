@@ -1,4 +1,5 @@
 body {
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   background-image: url(../img/background.jpg);
@@ -102,6 +103,12 @@ footer {
 
   transform-style: preserve-3d;
 }
+.return {
+  transform: rotateY(0deg);
+  transition: transform 0.7s;
+
+  transform-style: preserve-3d;
+}
 .match {
   background-image: none !important;
   opacity: 0;
@@ -143,12 +150,15 @@ footer {
   flex-direction: column;
   align-items: center;
 }
+
 button {
   background-color: rgb(170, 165, 165);
   color: rgba(255, 0, 0, 0.808);
   border-radius: 10%;
   font-family: "Rammetto One", cursive;
+  margin: 10px;
 }
+
 @media only screen and (min-width: 786px) {
   .cardGrid {
     display: grid;

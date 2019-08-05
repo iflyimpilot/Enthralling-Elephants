@@ -143,8 +143,7 @@ function handleStart(e) {
   });
   //below will count the number of matches and when the number gets to nine it will trigger the final win game screen
   const match = () => {
-    correct++;
-    if (correct >= 1) {
+    if (correct >= 9) 
       paused = true;
 
       const finish = document.createElement("div");
@@ -172,7 +171,12 @@ function handleStart(e) {
 
     let selected = document.querySelectorAll(".selected");
     selected.forEach(card => {
+      const returnCard = () => {
+        card.classList.remove("return");
+      };
+      card.classList.add("return");
       card.classList.remove("selected");
+      setTimeout(returnCard, 700);
     });
   };
 }
