@@ -1,6 +1,5 @@
 let start = document.querySelector(".startMenu");
 let startButton = document.querySelector(".startButton");
-
 let resetButton = document.querySelector(".restart");
 
 let grid = document.querySelector(".cardGrid");
@@ -110,7 +109,6 @@ function handleStart(e) {
   });
 
   grid.addEventListener("click", function(e) {
-    console.log(e.target.className);
     if (
       e.target.tagName === "SECTION" ||
       e.target.className === "card selected" ||
@@ -144,7 +142,7 @@ function handleStart(e) {
   const match = () => {
     correct++;
     console.log(correct);
-    if (correct >= 1) {
+    if (correct >= 9) {
       paused = true;
 
       const finish = document.createElement("div");
@@ -171,7 +169,12 @@ function handleStart(e) {
 
     let selected = document.querySelectorAll(".selected");
     selected.forEach(card => {
+      const returnCard = () => {
+        card.classList.remove("return");
+      };
+      card.classList.add("return");
       card.classList.remove("selected");
+      setTimeout(returnCard, 700);
     });
   };
 }
