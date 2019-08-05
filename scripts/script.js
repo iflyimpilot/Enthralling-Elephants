@@ -186,7 +186,7 @@ function handleStart(e) {
   //below will count the number of matches and when the number gets to nine it will trigger the final win game screen
   const match = () => {
     correct++;
-    if (correct >= 1) {
+    if (correct >= 9) {
       startGameMusicEnd();
       startWinMusic();
       paused = true;
