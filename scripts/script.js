@@ -1,24 +1,24 @@
+//declaration of variables used
 let start = document.querySelector(".startMenu");
 let startButton = document.querySelector(".startButton");
 let resetButton = document.querySelector(".restart");
-
 let grid = document.querySelector(".cardGrid");
 let count = 0;
 let correct = 0;
 let firstGuess = "";
 let secondGuess = "";
 let previousTarget = null;
-
 let delay = 1400;
-
 let paused = false; //Timer pause
 
+//the below function makes the reset button reload the page
 function reStart(e) {
   if (e.target === resetButton) {
     location.reload(true);
   }
 }
 
+// the following function is basically the whole game as it runs
 function handleStart(e) {
   if (e.target === startButton) {
     e.target.parentNode.remove();
@@ -26,7 +26,7 @@ function handleStart(e) {
     gameGrid = "";
   }
 
-  //TIMER
+  //TIMER element scripts
   let minutesLabel = document.getElementById("minutes");
   let secondsLabel = document.getElementById("seconds");
   let totalSeconds = 0;
@@ -49,9 +49,9 @@ function handleStart(e) {
       return valString;
     }
   }
+  //^TIMER
 
-  //TIMER
-
+  // below is setting up the properties of each card organized into an array
   const cardsArray = [
     {
       name: "mushroom",
@@ -91,9 +91,11 @@ function handleStart(e) {
     }
   ];
 
+  // below will add a copy of 'cardsArray' to the array and randomize their order
   let gameGrid = cardsArray.concat(cardsArray);
   gameGrid.sort(() => 0.5 - Math.random());
 
+  //below will create <div> elements with the properties of each card from the array
   gameGrid.forEach(item => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -108,6 +110,7 @@ function handleStart(e) {
     card.appendChild(back);
   });
 
+  //below the first if statement 'listens' for a click on the game page or a previously selected card and makes nothing change. We needed this because the whole game would flip or a card would not allow itself to be targeted in the next round of guessing. The second if statement is a simple counter of how many guesses have been made and maxs it to 2 cards shown at a time. The third if statement checks the name of the first guess to the name of the second guess and decides if its a match. Then it decides what to do with the card after the guess whether its a match or not.
   grid.addEventListener("click", function(e) {
     if (
       e.target.tagName === "SECTION" ||
@@ -138,11 +141,9 @@ function handleStart(e) {
       }
     }
   });
-
+  //below will count the number of matches and when the number gets to nine it will trigger the final win game screen
   const match = () => {
-    correct++;
-    console.log(correct);
-    if (correct >= 9) {
+    if (correct >= 9) 
       paused = true;
 
       const finish = document.createElement("div");
@@ -162,6 +163,7 @@ function handleStart(e) {
       card.classList.add("match");
     });
   };
+  //below will remove the 'selected' class from the two cards that were revealed if they didnt match. this will cause them to return to their 'hidden' state by flipping back over
   const resetGuesses = () => {
     firstGuess = "";
     secondGuess = "";
@@ -178,7 +180,7 @@ function handleStart(e) {
     });
   };
 }
-
+//these two are the 'listeners' that will initiate the start of the game and the reset button when clicked. note: these are not included in the handleStart function but they MUST come after it for them to work.
 startButton.addEventListener("click", handleStart);
 
 resetButton.addEventListener("click", reStart);
